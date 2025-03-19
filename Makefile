@@ -12,16 +12,15 @@ sleep-5:
 	sleep 5
 
 up:
-	docker-compose   up --build -d
+	docker-compose   --env-file .env up --build -d
 
 down:
-	docker-compose   down --remove-orphans
+	docker-compose   --env-file .env down --remove-orphans
 
 generate-env:
 	@if [ ! -f .env ]; then \
     		cp .env.example .env && \
-    		sed -i "s/^DB_PASSWORD=/DB_PASSWORD=$(shell openssl rand -hex 8)/" .env.local; \
-    		sed -i "s/^APP_SECRET=/APP_SECRET=$(shell openssl rand -hex 8)/" .env.local; \
+    		sed -i "s/^DB_PASSWORD=/DB_PASSWORD=$(shell openssl rand -hex 8)/" .env; \
     	fi
 
 bash:
