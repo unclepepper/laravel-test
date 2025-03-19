@@ -9,7 +9,7 @@ services:
       dockerfile: docker/${APP_ENV}/Dockerfile
     container_name: ${APP_NAME}-php-unit
     environment:
-      APP_ENV: ${APP_ENV:-dev}
+      APP_ENV: ${APP_ENV:-local}
       COMPOSER_MEMORY_LIMIT: -1
       COMPOSER_ALLOW_SUPERUSER: 1
     ports:
