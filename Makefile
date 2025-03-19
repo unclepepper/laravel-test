@@ -4,7 +4,7 @@ DOCKER_COMPOSE="$(shell which docker-compose)"
 DOCKER="$(shell which docker)"
 CONTAINER_PHP="php-unit"
 
-init: generate-env up right ci m-up
+init: generate-env up  ci right m-up
 
 restart: down up
 
